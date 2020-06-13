@@ -271,6 +271,91 @@ files:
         }
     }
   learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: |
+    package machine;
+    import java.util.Scanner;
+
+    public class CoffeeMachine {
+        private static int waterInside = 400;
+        private static int milkInside = 540;
+        private static int beansInside = 120;
+        private static int disposableCups = 9;
+        private static int money = 550;
+        private static Scanner scanner;
+
+        public static void main(String[] args) {
+            scanner = new Scanner(System.in);
+
+            printInfo();
+            System.out.print("\nWrite action (buy, fill, take):\n");
+            action(scanner.nextLine().trim());
+            System.out.println();
+            printInfo();
+
+            scanner.close();
+        }
+
+        private static void action(String act) {
+            if(act.equals("take")) take();
+            else if(act.equals("buy")) buy();
+            else if(act.equals("fill")) fill();
+        }
+
+        private static void take(){
+            System.out.println("I gave you $" + money);
+            money = 0;
+        }
+
+        private static void buy(){
+            System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:");
+            int what = scanner.nextInt();
+
+            if (what == 1) { // espresso
+                waterInside -= 250;
+                beansInside -= 16;
+                disposableCups -= 1;
+                money += 4;
+            } else if (what == 2) { // latte
+                waterInside -= 350;
+                milkInside -= 75;
+                beansInside -= 20;
+                disposableCups -= 1;
+                money += 7;
+            } else if (what == 3) { // cappuccino
+                waterInside -= 200;
+                milkInside -= 100;
+                beansInside -= 12;
+                disposableCups -= 1;
+                money += 6;
+            }
+        }
+
+        private static void fill(){
+            System.out.println("Write how many ml of water the coffee machine has:");
+            waterInside += scanner.nextInt();
+
+            System.out.println("Write how many ml of milk the coffee machine has:");
+            milkInside += scanner.nextInt();
+
+            System.out.println("Write how many grams of coffee beans the coffee machine has:");
+            beansInside += scanner.nextInt();
+
+            System.out.println("Write how many disposable cups of coffee do you want to add:");
+            disposableCups += scanner.nextInt();
+        }
+
+        private static void printInfo(){
+            System.out.println("The coffee machine has:");
+            System.out.println(waterInside + " of water");
+            System.out.println(milkInside + " of milk");
+            System.out.println(beansInside + " of coffee beans");
+            System.out.println(disposableCups + " of disposable cups");
+            System.out.println(money + " of money");
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/33/stages/179/implement
-status: Unchecked
+status: Solved
 record: -1

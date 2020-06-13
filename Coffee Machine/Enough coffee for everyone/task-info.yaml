@@ -150,6 +150,37 @@ files:
         }
     }
   learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: |
+    package machine;
+    import java.util.Scanner;
+
+    public class CoffeeMachine {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Write how many cups of coffee you will need:");
+            int hMany = scanner.nextInt();
+            System.out.println("For " + hMany + " cups of coffee you will need:");
+            System.out.println(hMany * 200 + " ml of water");
+            System.out.println(hMany * 50 + " ml of milk");
+            System.out.println(hMany * 15 + " g of coffee beans");
+
+            scanner.close();
+        }
+
+        private static void makeCoffe() {
+            System.out.println("Starting to make a coffee");
+            System.out.println("Grinding coffee beans");
+            System.out.println("Boiling water");
+            System.out.println("Mixing boiled water with crushed coffee beans");
+            System.out.println("Pouring coffee into the cup");
+            System.out.println("Pouring some milk into the cup");
+            System.out.println("Coffee is ready!");
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/33/stages/177/implement
-status: Unchecked
-record: -1
+status: Solved
+record: 3

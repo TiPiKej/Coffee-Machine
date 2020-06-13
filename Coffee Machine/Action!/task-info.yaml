@@ -354,6 +354,97 @@ files:
         }
     }
   learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: |
+    package machine;
+    import java.util.Scanner;
+
+    public class CoffeeMachine {
+        private static int waterInside = 400;
+        private static int milkInside = 540;
+        private static int beansInside = 120;
+        private static int disposableCups = 9;
+        private static int money = 550;
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+
+            hManyCanBeMade(scanner.nextInt());
+
+            scanner.close();
+        }
+
+        private static void action(String act) {
+            if(act == "take"){
+                money = 0;
+            }else if(act == "buy"){
+
+            }else if(act == "fill"){
+                System.out.println("Write how many ml of water the coffee machine has:");
+                waterInside += scanner.nextInt();
+
+                System.out.println("Write how many ml of milk the coffee machine has:");
+                milkInside += scanner.nextInt();
+
+                System.out.println("Write how many grams of coffee beans the coffee machine has:");
+                beansInside += scanner.nextInt();
+            }
+        }
+
+        private static void makeCoffee() {
+            System.out.println("Starting to make a coffee");
+            System.out.println("Grinding coffee beans");
+            System.out.println("Boiling water");
+            System.out.println("Mixing boiled water with crushed coffee beans");
+            System.out.println("Pouring coffee into the cup");
+            System.out.println("Pouring some milk into the cup");
+            System.out.println("Coffee is ready!");
+        }
+
+        private static void coffeeRequires(int hMany) {
+            System.out.println("For " + hMany + " cups of coffee you will need:");
+            System.out.println(waterReq(hMany) + " ml of water");
+            System.out.println(milkReq(hMany) + " ml of milk");
+            System.out.println(beansReq(hMany) + " g of coffee beans");
+        }
+
+        private static int waterReq(int hMany, int mode) {
+            return hMany * 200;
+        }
+
+        private static int milkReq(int hMany) {
+            return hMany * 50;
+        }
+
+        private static int beansReq(int hMany) {
+            return hMany * 15;
+        }
+
+        private static void hManyCanBeMade(int hMany) {
+            int canBeMade = hMany;
+
+            while(waterReq(canBeMade) > waterInside) canBeMade--;
+            while(milkReq(canBeMade) > milkInside) canBeMade--;
+            while(beansReq(canBeMade) > beansInside) canBeMade--;
+
+            if (canBeMade == hMany) {
+                while(
+                        waterReq(canBeMade + 1) < waterInside &&
+                        milkReq(canBeMade + 1) < milkInside &&
+                        beansReq(canBeMade + 1) < beansInside
+                ){
+                    canBeMade++;
+                }
+            }
+
+            if(hMany < canBeMade) System.out.println("Yes, I can make that amount of coffee (and even " + (canBeMade - hMany) + " more than that)");
+            else if(hMany == canBeMade) System.out.println("Yes, I can make that amount of coffee");
+            else System.out.println("No, I can make only " + canBeMade + " cup(s) of coffee");
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/33/stages/178/implement
-status: Unchecked
-record: -1
+status: Solved
+record: 4
