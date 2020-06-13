@@ -12,12 +12,18 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Coffee Machine/task" />
+            <option value="$PROJECT_DIR$/Problems/Account and its owner" />
+            <option value="$PROJECT_DIR$/Problems/Accounts" />
+            <option value="$PROJECT_DIR$/Problems/Books" />
             <option value="$PROJECT_DIR$/Problems/Check if an array contains two numbers" />
             <option value="$PROJECT_DIR$/Problems/Count how many times a number occurs" />
+            <option value="$PROJECT_DIR$/Problems/Geometric cube" />
             <option value="$PROJECT_DIR$/Problems/Incorrect comments" />
             <option value="$PROJECT_DIR$/Problems/Initializing an array of characters" />
             <option value="$PROJECT_DIR$/Problems/Initializing an array of longs" />
+            <option value="$PROJECT_DIR$/Problems/Points on the 2D plane" />
             <option value="$PROJECT_DIR$/Problems/Two numbers never occur to each other" />
+            <option value="$PROJECT_DIR$/Problems/User" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>
